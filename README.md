@@ -3,7 +3,7 @@ PHP functions for generating forms & DB queries quickly, with certain parameters
 * * *
 ### Changelog
 **2019-06-19:** 
-- Supports more input types.
+- Supports more input types (radio, checkbox, password).
 - Error message when input type is incorrect or not supported.
 
 **2019-06-18:** 
