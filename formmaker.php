@@ -1,6 +1,6 @@
 <?php
-//ADATBÁZIS
-//mysql beállítások
+//DATABASE
+//mysql options
 $MYSQL_HOST = "localhost";
 $MYSQL_USER = "root";
 $MYSQL_PASSWORD = "";
@@ -65,23 +65,59 @@ $range = GetFormRange("vehicles","add_veh");
 ?-->
 
 <?php
-//ADATGYŰJTÉS
-function DbInput() {
-global $db;
-	$sql='SELECT * FROM `forms`';
+//GENERATING FORM
+function GetForm($sitename) {
+	global $db;
+	$sql='SELECT * FROM `forms` where `site` like "'.$sitename.'"order by sort asc';
 	$query = $db->query($sql);
-	$row = $query->fetch_object();
-	while($row = mysql_fetch_assoc($row))
-	{
-	echo $row->sort;
-	}
-}
+	//$row = $query->fetch_object();
+	//if (isset($row->formname) == false) {	//Check name
+		//echo 'HIBA! ÉRVÉNYTELEN NÉV.';		//Error mesage
+	//}else {
+		echo 'FORM<br>'/*<form name="'.$row->formname.'">'*/;
 
-/*function DbInput() {
-global $db;
-	$sql='SELECT * FROM `forms` where sort like 1';
-	$query = $db->query($sql);
-	$row = $query->fetch_object();
-	return $row->choices;
-}*/
+		while ($row = $query->fetch_object()) {		
+			if ($row->input_type == "choice") {		//Drop-down menu
+				$ch_array=$row->choices;
+				$choices = explode(",",$ch_array);
+				echo '<select>';
+				echo'<option disabled selected neme="'.$row->formname.'" value>--Kiválasztás--</option>';
+				for ($i=0; $i < count($choices); $i++) {
+					echo '<option name="'.$row->formname.'" value="Admin">'.$choices[$i].'</option>';
+				}
+				echo '</select>'.$row->fieldlabel.'<br>';
+			}elseif ($row->input_type == "radio") {		//Radio buttons
+				$ch_array=$row->choices;
+				$choices = explode(",",$ch_array);
+				echo $row->fieldlabel.'<br>';
+				for ($i=0; $i < count($choices); $i++) {
+					echo '<input type="radio" name="'.$row->formname.'" id="'.$i.'" value="Admin">'.$choices[$i].'</input><br>';
+				}
+			}elseif ($row->input_type == "checkbox") {		//Checkboxes
+				$ch_array=$row->choices;
+				$choices = explode(",",$ch_array);
+				echo $row->fieldlabel.'<br>';
+				for ($i=0; $i < count($choices); $i++) {
+					echo '<input type="checkbox" name="'.$row->formname.'" id="'.$i.'" value="Admin">'.$choices[$i].'</input><br>';
+				}
+			}elseif ($row->input_type == "text") {			//Text
+				echo '<input type="'.$row->input_type.'">'.$row->fieldlabel.'</input><br>';
+			}elseif ($row->input_type == "password") {			//Password
+				echo '<input type="'.$row->input_type.'">'.$row->fieldlabel.'</input><br>';
+			}elseif ($row->input_type == "date") {			//Date
+				echo '<input type="'.$row->input_type.'">'.$row->fieldlabel.'</input><br>';
+			}elseif ($row->input_type == "number") {			//Number
+				echo '<input type="'.$row->input_type.'">'.$row->fieldlabel.'</input><br>';
+			}elseif ($row->input_type == "submit") {			//Submit
+				echo '<input type="'.$row->input_type.'" value="'.$row->fieldlabel.'"><br>';
+			}else {
+				echo 'ERROR! Incorrect or not supported input type at: <b>'.$row->sort.', '.$row->fieldname.'</b><br>';
+			}
+		}	
+	//}
+	echo '</form>';
+}	
 ?>
+
+<!--}else {
+				echo '<input type="'.$row->input_type.'">'.$row->fieldlabel.'</input><br>';-->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2019. Jún 18. 07:51
+-- Létrehozás ideje: 2019. Jún 19. 14:33
 -- Kiszolgáló verziója: 10.1.36-MariaDB
 -- PHP verzió: 7.2.11
 
@@ -35,7 +35,7 @@ CREATE TABLE `forms` (
   `fieldname` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
   `fieldlabel` varchar(30) COLLATE utf8_hungarian_ci NOT NULL,
   `sort` int(11) NOT NULL,
-  `input_type` varchar(10) COLLATE utf8_hungarian_ci NOT NULL,
+  `input_type` enum('text','choice','radio','checkbox','date','password','submit','number','test error message') COLLATE utf8_hungarian_ci NOT NULL,
   `choices` text COLLATE utf8_hungarian_ci NOT NULL,
   `submit_to` varchar(20) COLLATE utf8_hungarian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
@@ -51,7 +51,10 @@ INSERT INTO `forms` (`id`, `site`, `formname`, `fieldname`, `fieldlabel`, `sort`
 (9, 'vehicles', 'add_veh', 'owner', 'Szolgáltató', 4, 'choice', 'BKV,VT-Arriva,Volánbusz', 'submitveh'),
 (10, 'vehicles', 'add_veh', 'registration', 'Rendszám\\nHatósági azonosító', 5, 'text', '', 'submitveh'),
 (11, 'vehicles', 'add_veh', 'depot', 'Telephely', 6, 'choice', 'Óbuda,Kelenföld,Délpest,Cinkota,Trolibusz divízió,Bogáncs utca,Andor utca,Fibula utca,Budafok kocsiszín,Kelenföld kocsiszín,Ferencváros kocsiszín,Baross kocsiszín,Hungária kocsiszín,Száva kocsiszín,Angyalföld kocsiszín,Ferencváros kocsiszín', 'submitveh'),
-(12, 'vehicles', 'add_veh', 'status', 'Státusz', 7, 'choice', 'Aktív,Ideiglenesen kivonva,Véglegesen kivonva', 'submitveh');
+(12, 'vehicles', 'add_veh', 'status', 'Státusz', 7, 'choice', 'Aktív,Ideiglenesen kivonva,Véglegesen kivonva', 'submitveh'),
+(13, 'stops', 'add_stops', 'stopname', 'Megállónév', 1, 'text', '', 'submitstop'),
+(15, 'stops', 'add_stops', 'vehnum', 'Járművek száma', 2, 'choice', '1,2,3', 'submitstop'),
+(16, 'vehicles', 'add_veh', 'submit', 'Add vehicle', 8, 'submit', '', 'submitveh');
 
 -- --------------------------------------------------------
 
@@ -101,7 +104,7 @@ ALTER TABLE `vehicles`
 -- AUTO_INCREMENT a táblához `forms`
 --
 ALTER TABLE `forms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT a táblához `vehicles`
