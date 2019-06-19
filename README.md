@@ -3,8 +3,8 @@ PHP functions for generating forms & DB queries quickly, with certain parameters
 * * *
 ### Changelog
 **2019-06-19:** 
-- Több beviteli típus támogatása.
-- Hibaüzenet helytelen típus esetén.
+- Supports more input types.
+- Error message when input type is incorrect or not supported.
 
 **2019-06-18:** 
-- A form generálás működik.
+- Basic form generating.
