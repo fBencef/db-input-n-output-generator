@@ -1,8 +1,0 @@
-szekrény;true;false;none;nappali
-ágy;true;false;none;none
-kád;true;false;none;fürdőszoba
-ajtó;true;false;kulcs;nappali;
-ablak;false;false;feszítővas;nappali
-doboz;false;true;none;nappali
-kulcs;false;true;none;nappali
-feszítővas;false;true;none;fürdőszoba
