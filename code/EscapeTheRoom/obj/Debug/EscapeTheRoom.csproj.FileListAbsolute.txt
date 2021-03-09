@@ -1,0 +1,10 @@
+G:\Documents\Egyetem\Duális képzés\i4p\Felvételi feladat\code\EscapeTheRoom\bin\Debug\Objects.csv
+G:\Documents\Egyetem\Duális képzés\i4p\Felvételi feladat\code\EscapeTheRoom\bin\Debug\Rooms.csv
+G:\Documents\Egyetem\Duális képzés\i4p\Felvételi feladat\code\EscapeTheRoom\bin\Debug\EscapeTheRoom.exe.config
+G:\Documents\Egyetem\Duális képzés\i4p\Felvételi feladat\code\EscapeTheRoom\bin\Debug\EscapeTheRoom.exe
+G:\Documents\Egyetem\Duális képzés\i4p\Felvételi feladat\code\EscapeTheRoom\bin\Debug\EscapeTheRoom.pdb
+G:\Documents\Egyetem\Duális képzés\i4p\Felvételi feladat\code\EscapeTheRoom\obj\Debug\EscapeTheRoom.csprojAssemblyReference.cache
+G:\Documents\Egyetem\Duális képzés\i4p\Felvételi feladat\code\EscapeTheRoom\obj\Debug\EscapeTheRoom.csproj.CoreCompileInputs.cache
+G:\Documents\Egyetem\Duális képzés\i4p\Felvételi feladat\code\EscapeTheRoom\obj\Debug\EscapeTheRoom.exe
+G:\Documents\Egyetem\Duális képzés\i4p\Felvételi feladat\code\EscapeTheRoom\obj\Debug\EscapeTheRoom.pdb
+G:\Documents\Egyetem\Duális képzés\i4p\Felvételi feladat\code\EscapeTheRoom\bin\Debug\mentes.sav
